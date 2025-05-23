@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Image Preview</title>
+  <style>
+    #image {
+      width: 500px;
+      height: 300px;
+      background-color: #eee;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #333;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+    .thumbnail {
+      width: 100px;
+      height: 60px;
+      margin: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div id="image">Di chuột qua một hình ảnh bên dưới để hiển thị ở đây.</div>
+
+<img class="thumbnail" src="https://cdn-media.sforum.vn/storage/app/media/ctv_seo10/hinh-nen-mau-do-thumb.jpg" alt="Ảnh đỏ" onmouseover="update(this)" onmouseout="unDo()">
+<img class="thumbnail" src="https://hoanghamobile.com/tin-tuc/wp-content/uploads/2024/07/anh-cay-xanh.jpg" alt="Ảnh xanh lá" onmouseover="update(this)" onmouseout="unDo()">
+<img class="thumbnail" src="https://image.dienthoaivui.com.vn/x,webp,q90/https://dashboard.dienthoaivui.com.vn/uploads/dashboard/editor_upload/hinh-nen-mau-xanh-duong-37.jpg" alt="Ảnh xanh dương" onmouseover="update(this)" onmouseout="unDo()">
+
+<script>
+  const imageDiv = document.getElementById("image");
+  const originalText = "Di chuột qua một hình ảnh bên dưới để hiển thị ở đây.";
+  const originalBackground = "";
+
+  function update(previewPic) {
+    console.log("Sự kiện đã được kích hoạt");
+    console.log("Alt:", previewPic.alt);
+    console.log("Src:", previewPic.src);
+
+    imageDiv.style.backgroundImage = `url('${previewPic.src}')`;
+    imageDiv.textContent = previewPic.alt;
+  }
+
+  function unDo() {
+    imageDiv.style.backgroundImage = originalBackground;
+    imageDiv.textContent = originalText;
+  }
+</script>
+
+</body>
+</html>
